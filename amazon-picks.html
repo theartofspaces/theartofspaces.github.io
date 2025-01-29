@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Picks - The Art of Spaces</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 12px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #444;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2c2c2c;
+        }
+
+        .page-header {
+            text-align: center;
+            padding-top: 100px;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #2c2c2c;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            color: #2c2c2c;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .buy-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #0066cc;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .buy-button:hover {
+            background-color: #004d99;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+
+            .product-content {
+                padding: 15px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">The Art of Spaces</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="amazon-picks.html">Art of Spaces Top Amazon Picks</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Art of Spaces Top Amazon Picks</h1>
+        </header>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="Gold Framed Landscape Wall Art.jpg" alt="Gold Framed Landscape Wall Art" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Gold Framed Landscape Wall Art</h2>
+                    <p class="product-description">Elegant gold-framed landscape artwork perfect for adding sophistication to any room.</p>
+                    <p class="product-price">$79.99</p>
+                    <a href="https://amzn.to/4glkzkL" target="_blank" class="buy-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy on Amazon
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Cotton Knitted Round Pouf.jpg" alt="Artistic Weavers McIntosh Cotton Knitted Round Pouf" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Cotton Knitted Round Pouf</h2>
+                    <p class="product-description">Handcrafted cotton pouf ottoman, perfect for additional seating or as a decorative accent.</p>
+                    <p class="product-price">$54.99</p>
+                    <a href="https://amzn.to/4ghoP4H" target="_blank" class="buy-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy on Amazon
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
