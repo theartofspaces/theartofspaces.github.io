@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Spaces</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 12px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #444;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2c2c2c;
+        }
+
+        .page-section {
+            min-height: auto;
+            padding-top: 60px;
+        }
+
+        .home-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            padding-top: 80px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+
+        .design-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .design-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .design-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .design-card-content {
+            padding: 12px;
+            text-align: center;
+            background: white;
+        }
+
+        .design-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #2c2c2c;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .design-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        header {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #2c2c2c;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .design-showcase {
+            margin: 20px 0;
+        }
+
+        .design-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .description {
+            margin: 16px 0;
+            font-size: 1.3rem;
+            line-height: 1.7;
+            max-width: 800px;
+            font-weight: 300;
+            color: #444;
+        }
+
+        .description strong {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 12px;
+            color: #2c2c2c;
+        }
+
+        .description br + br {
+            display: none;
+        }
+
+        .discover-text {
+            margin: 16px 0 8px;
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .items-list {
+            list-style-type: none;
+            margin: 16px 0;
+            padding-left: 20px;
+        }
+
+        .items-list li {
+            position: relative;
+            padding: 6px 0;
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .items-list li::before {
+            content: "•";
+            color: #0066cc;
+            position: absolute;
+            left: -20px;
+            font-size: 1.2em;
+        }
+
+        .items-list a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .items-list a:hover {
+            color: #004d99;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .page-section {
+                padding-top: 50px;
+            }
+
+            .home-section {
+                grid-template-columns: 1fr;
+                padding-top: 60px;
+                gap: 20px;
+            }
+
+            .design-showcase {
+                margin: 15px 0;
+            }
+
+            .design-card img {
+                height: 220px;
+            }
+
+            .design-card-content {
+                padding: 10px;
+            }
+
+            .design-card h2 {
+                font-size: 1.3rem;
+            }
+
+            .description {
+                font-size: 1.2rem;
+                margin: 12px 0;
+            }
+
+            .description strong {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+
+            .discover-text {
+                font-size: 1.1rem;
+            }
+
+            .items-list li {
+                padding: 5px 0;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">The Art of Spaces</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="amazon-picks.html">Art of Spaces Top Amazon Picks</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="page-section home-section">
+            <div class="design-card" onclick="location.href='#french-dining'">
+                <img src="French Dining Space.png" alt="French Dining Space">
+                <div class="design-card-content">
+                    <h2>French Dining Space</h2>
+                </div>
+            </div>
+            <div class="design-card" onclick="location.href='#modern-living'">
+                <img src="Farmhouse style luxurious living room.png" alt="Modern Farmhouse Living">
+                <div class="design-card-content">
+                    <h2>Modern Farmhouse Style</h2>
+                </div>
+            </div>
+            <div class="design-card" onclick="location.href='#japanese-minimalism'">
+                <img src="Japanese Minimalism Style.png" alt="Japanese Minimalist Zen Style">
+                <div class="design-card-content">
+                    <h2>Japanese Minimalist Zen Style</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="french-dining" class="page-section">
+            <div class="design-showcase">
+                <img src="French Dining Space.png" alt="French Dining Space" class="design-image">
+                <p class="description">
+                    <strong>French Dining Space</strong><br>
+                    Cozy French charm meets timeless elegance! This dreamy South French-style kitchen is the perfect blend of warmth and sophistication—featuring a chic Carrara marble tulip table, classic rattan dining chairs, soft woven shades, and a glowing pendant light. Who wouldn't love sipping morning coffee here? ☕🌿
+                </p>
+                <p class="discover-text">Click the links below to discover similar design masterpieces and make them life!</p>
+                <ul class="items-list">
+                    <li><a href="https://amzn.to/3WlRRsz" target="_blank">42.1" White round marble Tulip Table</a></li>
+                    <li><a href="https://amzn.to/3E6JZVW" target="_blank">47" Mid-Century Modern Dining Table</a></li>
+                    <li><a href="https://amzn.to/4gmZEOl" target="_blank">Boho Wood Beaded Chandelier</a></li>
+                    <li><a href="https://amzn.to/40nE6eg" target="_blank">French Hand-Woven Wicker Chairs</a></li>
+                    <li><a href="https://amzn.to/4jq6AN3" target="_blank">Bamboo Blinds</a></li>
+                    <li><a href="https://amzn.to/4hinvPK" target="_blank">Vintage Wall Art</a></li>
+                    <li><a href="https://amzn.to/4axBHlV" target="_blank">White Clay Pot Ceramic Table Lamp</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="modern-living" class="page-section">
+            <div class="design-showcase">
+                <img src="Farmhouse style luxurious living room.png" alt="Modern Farmhouse Living" class="design-image">
+                <p class="description">
+                    <strong>Modern Farmhouse Style</strong><br>
+                    This beautifully designed living room embodies the essence of modern farmhouse style, where rustic warmth meets sophisticated comfort. The vaulted ceiling with exposed wooden beams creates an inviting and airy atmosphere, complemented by large windows that flood the space with natural light.
+                    <br><br>
+                    At the heart of the room is a plush white sectional sofa, adorned with cozy textured pillows in earthy green and beige tones. A sleek wooden coffee table with a minimalist metal frame serves as a stylish centerpiece, paired with a knitted pouf for added charm. The neutral-toned area rug anchors the space, enhancing the cozy and relaxed ambiance.
+                    <br><br>
+                    To the side, a classic white fireplace with neatly stacked firewood adds a touch of warmth, while thoughtfully placed artwork and decorative accents bring personality to the room. Soft sconces provide subtle lighting, creating a serene and intimate environment perfect for relaxation or entertaining.
+                    <br><br>
+                    This living room is a stunning example of how farmhouse aesthetics can be seamlessly blended with contemporary design, creating a space that is both timeless and effortlessly elegant. Whether you're looking to refresh your home decor or draw inspiration for your next project, this space is a perfect blueprint for achieving a cozy yet sophisticated retreat.
+                </p>
+                <p class="discover-text">Click the links below to discover similar design masterpieces and make them life!</p>
+                <ul class="items-list">
+                    <li><a href="https://amzn.to/40pCgcU" target="_blank">Modern Industrial Rectangular Wood and Metal Coffee Table</a></li>
+                    <li><a href="https://amzn.to/4ghoP4H" target="_blank">Artistic Weavers McIntosh Cotton Knitted Round Pouf</a></li>
+                    <li><a href="https://amzn.to/4huz3Q0" target="_blank">Black 3 Door Buffet Cabinet</a></li>
+                    <li><a href="https://amzn.to/40CgzWZ" target="_blank">Rustic Wall Sconce with Amber Glass Mini Vintage Antique Gothic Wall Light</a></li>
+                    <li><a href="https://amzn.to/3Cikpg5" target="_blank">Convertible Sectional Sofa L Shaped Couch</a></li>
+                    <li><a href="https://amzn.to/4glkzkL" target="_blank">Gold Framed Landscape Wall Art</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="japanese-minimalism" class="page-section">
+            <div class="design-showcase">
+                <img src="Japanese Minimalism Style.png" alt="Japanese Minimalist Zen Style" class="design-image">
+                <p class="description">
+                    <strong>Japanese Minimalist Zen Style</strong><br>
+                    This interior design style beautifully exemplifies the principles of Japanese minimalism combined with modern comfort. The space showcases a perfect balance of form and function, characterized by:
+                    <br><br>
+                    Clean lines and uncluttered spaces define the room, creating a sense of serenity and calm. The color palette is deliberately restrained, featuring warm neutrals - soft beige walls, light wood tones, and cream-colored upholstery that create a harmonious, peaceful atmosphere.
+                    <br><br>
+                    Natural elements play a key role, with the large window bringing in abundant natural light and connecting the interior to the outdoor landscape. The thoughtfully placed indoor plants add vitality while maintaining the room's zen-like quality.
+                    <br><br>
+                    The furniture selection follows Japanese-inspired design principles with low-profile seating and simple, geometric forms. The wooden coffee table and side table showcase clean lines and natural materials, while the comfortable sectional sofa maintains a minimalist aesthetic without sacrificing comfort.
+                    <br><br>
+                    The careful attention to negative space, known as "ma" in Japanese design philosophy, allows each piece to breathe and stand on its own while contributing to the overall composition. Textural elements like the woven area rug and subtle fabric variations add depth without disrupting the room's peaceful harmony.
+                    <br><br>
+                    This style appeals to those who value simplicity, mindful living, and a connection to nature while maintaining a contemporary, sophisticated aesthetic. It's particularly suited for creating a calming sanctuary away from the chaos of modern life.
+                </p>
+                <p class="discover-text">Click the links below to discover similar design masterpieces and make them life!</p>
+                <ul class="items-list">
+                    <li><a href="#" target="_blank">Low Profile Modern Sectional Sofa</a></li>
+                    <li><a href="#" target="_blank">Minimalist Wooden Coffee Table</a></li>
+                    <li><a href="#" target="_blank">Natural Fiber Area Rug</a></li>
+                    <li><a href="#" target="_blank">Japanese-Style Side Table</a></li>
+                    <li><a href="#" target="_blank">Bamboo Window Shades</a></li>
+                    <li><a href="#" target="_blank">Modern Floor Cushions</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html> 
